@@ -1,3 +1,10 @@
+# Setup
+
+This is the client folder for my LoopBack+Express+React repository that [I have located here on GitHub.](https://github.com/pizdetz/loopback-express-react)
+This application is still a work in progress and therefore the scaffolding is a bit odd, as I work on the project more I will find a better way to integrate
+the React builds with the server side deployment. This project is purely for personal educational purposes, I'm just building it off of the default LoopBack
+Notes application they provide. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
