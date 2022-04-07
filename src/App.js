@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 import './App.css';
 
+import AddTodo from './components/AddTodo';
+import TodoList from './components/TodoList';
+
 function App() {
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    callBackendAPI();
+  }, []);
+
+  const callBackendAPI = async () => {
+    axios.get('/api/notes').then(res => setState(res.data));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {state && (
+        <div className="controls">
+          <h1>Try posting some notes to the server!</h1>
+          <AddTodo />
+          <TodoList notes={state} />
+        </div>
+      )}
     </div>
   );
 }
